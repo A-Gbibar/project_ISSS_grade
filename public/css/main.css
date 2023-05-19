@@ -1,0 +1,173 @@
+.perant {
+    min-height: 100vh;
+    background-color: var(--secend-color);
+}
+
+.imag {
+    min-width: 100px;
+    max-width: 300px;
+}
+.imag img {
+    width: 100%;
+}
+
+
+.perant h2 {
+    width: 90%;
+    text-transform: capitalize;
+    font-size: 3em;
+}
+
+.perant h2 span {
+    font-size: 1.4em;
+    color: var(--main-color);
+}
+
+.perant h2 span:nth-child(2) {
+    padding: 5px;
+    border-radius: var(--main-border);
+    padding-right: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.073) 0px 1px 3px, rgba(0, 0, 0, 0.174) 0px 1px 2px;
+}
+
+.perant .title p {
+    max-width: 65%;
+    font-size: 1em;
+}
+
+/* _______________________________start__popup____________________________________ */
+
+.Commencer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.066);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--main-trantion);
+}
+
+.Commencer.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.global-input {
+    position: relative;
+    width: 80vw;
+    height: 7vh;
+    background-color: var(--secend-color);
+    border-radius: var(--main-border);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    overflow-y: scroll;
+    transition: var(--main-trantion);
+
+}
+
+.Commencer.active .global-input {
+        height: 97vh;
+}
+
+.global-input form .inputs label {
+    width: 40%;
+    margin: 15px 20px;
+    position: relative;
+}
+
+
+.global-input .close {
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: var(--main-border);
+    box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 6%) 0px 1px 2px 0;
+    top: 7px;
+    right: 18px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+@media (max-width:1040px) {
+
+    .global-input form .radios>span:first-child,
+    .global-input form .radios label span {
+        font-size: 0.8em;
+    }
+
+    .global-input form .radios label span {
+
+        padding: 6px 10px 6px 6px;
+
+    }
+}
+
+@media (max-width:960px) {
+    .global-input {
+        width: 90vw;
+    }
+    .perant h2{
+        font-size: 2.3em;
+    }
+}
+
+@media (max-width:780px) {
+    .global-input .chose label {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .global-input form .radios{
+        height: 120px;
+    }
+    .perant h2 span:nth-child(2){
+        margin-top: 10px;
+    }
+    .perant .title p{
+        font-size: 0.8em;
+    }
+
+}
+@media (max-width:600px) {
+    .global-input form .inputs label{
+        width: 100%;
+    }
+    .perant h2{
+        font-size: 1.9em;
+    }
+    .perant .title p{
+        max-width: 90%;
+    }
+}
+
+@media (max-width:520px) {
+    .global-input form .radios{
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+    .global-input form .radios>span:first-child{
+        font-size: 1em;
+        border-right: none;
+        padding: 10px;
+        border-bottom: 3px solid #63a1f2ac;
+        width: 100%;
+        margin-bottom: 10px;
+        justify-content: center;
+        
+    }
+    .perant h2{
+        font-size: 1.5em;
+    }
+}
+@media (max-width:450px) {
+    .global-input .close{
+        display: none !important;
+    }
+
+}
+
+/* _______________________________end__popup____________________________________ */

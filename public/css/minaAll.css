@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Heebo', sans-serif;
+}
+:root {
+    --main-color: #3889F2;
+    --secend-color: #E4EBF2;
+    --three-color: #63A1F2;
+    --sub-color-one: #056CF2;
+    --sub-color-tow: #1D79F2;
+    --green-color: #cfd61e;
+    --main-border: 8px;
+    --text-color: #022859;
+    --main-trantion: all 0.8s ease-in-out;
+    --white-color:#fff;
+    --text-color-tow:#0228598f;
+    --border-shadow: #63a1f2ac 0px 0px 0px 3px;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: var(--main-border);
+}
+
+p {
+    text-align: justify;
+}
+
+body {
+    color: var(--text-color);
+    /* background-color: var(--secend-color); */
+}
+
+.buttoms button,
+.buttoms .btnClose {
+    position: relative;
+    margin: 0 20px;
+    background-color: var(--main-color);
+    color: var(--secend-color);
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: var(--main-border);
+    border: none;
+    outline: none;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+.buttoms button::after,
+.buttoms .btnClose::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid var(--main-color);
+    left: 0;
+    top: 0;
+    border-radius: var(--main-border);
+    transition: var(--main-trantion);
+
+}
+
+.buttoms button:hover::after,
+.buttoms .btnClose:hover::after {
+    margin: 6px;
+}
+
+.buttoms button:nth-child(2)::after,
+.buttoms .btnClose::after {
+    border-color: var(--three-color);
+}
+
+.buttoms button:nth-child(2),
+.buttoms .btnClose {
+    background-color: var(--three-color);
+}
+
+
+
+
+
+
+/* -----------------------------------input-globale---------------------------------- */
+
+
+.global-input form .inputs label input {
+    padding: 8px;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid var(--three-color);
+    padding-left: 20px;
+    height: 55px;
+    transition: var(--main-trantion);
+}
+
+.global-input form .inputs label span {
+    position: absolute;
+    left: 0;
+    transform: translate(23%, 90%);
+    /* color: var(--main-color); */
+    font-size: 0.8em;
+    opacity: 0.7;
+    transition: var(--main-trantion);
+}
+
+::-webkit-datetime-edit {
+    visibility: hidden;
+}
+
+::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 10px;
+}
+
+.global-input form .inputs label input:focus::-webkit-datetime-edit,
+.global-input form .inputs label input:valid::-webkit-datetime-edit {
+    visibility: visible;
+}
+
+.global-input form .inputs label input:valid~span,
+.global-input form .inputs label input:focus~span {
+    transform: translateY(-18px) translateX(14px);
+    background: var(--three-color);
+    padding: 5px 10px;
+    opacity: 1;
+    border-radius: var(--main-border);
+    color: var(--secend-color);
+}
+
+.global-input form .inputs label input:valid,
+.global-input form .inputs label input:focus {
+    box-shadow: var(--border-shadow);
+    border: none;
+    border-radius: var(--main-border);
+}
+
+.global-input form .radios input[type="radio"] {
+    display: none;
+}
+
+.global-input form .radios label span {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.4s ease;
+    padding: 10px 20px 10px 10px;
+    border-radius: 31px;
+    margin-bottom: 5px;
+}
+
+.global-input form .radios label span::before {
+    content: "";
+    background-color: var(--secend-color);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 2px var(--main-color);
+}
+
+.global-input form .radios input[type="radio"]:checked+span::before {
+    box-shadow: inset 0 0 0 4px var(--main-color);
+}
+
+.global-input form .radios label span:hover,
+.global-input form .radios input[type="radio"]:checked+span {
+    background-color: white;
+    justify-content: space-evenly;
+}
+
+.global-input form .radios {
+    width: 85%;
+    height: 70px;
+    border-radius: var(--main-border);
+    box-shadow: var(--border-shadow);
+}
+
+.global-input form .radios>span:first-child {
+    font-size: 1.1em;
+    color: var(--three-color);
+    border-right: 3px solid #63a1f2ac;
+    height: 100%;
+}

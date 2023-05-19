@@ -1,0 +1,144 @@
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+}
+nav.sticky{
+    background-color: var(--white-color);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+nav .logoISSS img{
+ min-width: 90px;
+ max-width: 200px;
+}
+nav .logoHassan-1er img{
+    width: 130px;
+    max-width: 200px;
+}
+nav p{
+    max-width: 370px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+nav p span{
+    font-size: 1.3em;
+    color:var( --main-color);
+}
+/* ______________________start____header________________________ */
+header{
+    min-height: 100vh;
+}
+header img{
+    width: 400px;
+    margin-top: -40px;
+    animation: animationImage 6s ease-in-out infinite alternate;
+}
+@keyframes animationImage {
+    0%{
+        margin-top: -40px;
+        transform: rotate(0deg);
+
+    }
+    100%{
+        margin-top: 40px;
+        transform: rotate(5deg);
+    }
+}
+
+header .title h2{
+    font-weight: 700;
+}
+header .title h2:nth-child(2){
+    padding: 5px;
+    border-radius: var(--main-border);
+    padding: 10px;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.073) 0px 1px 3px, rgba(0, 0, 0, 0.174) 0px 1px 2px;
+}
+header .title p{
+    font-size: 0.8em;
+    color: var( --text-color-tow);
+}
+header .buttoms{
+    position: absolute;
+    bottom: -130px;
+}
+header .buttoms button{
+    margin: 0;
+}
+/* ______________________end____header________________________ */
+
+/* ______________________start____section________________________ */
+
+section{
+    min-height: 100vh;
+    background-color: var(--secend-color);
+}
+.titles{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px;
+    font-size: 1.7em;
+    box-shadow: var(--border-shadow) , rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    
+}
+.titles span:nth-child(2){
+    font-size: 0.7em;
+    color: var( --text-color-tow);
+}
+section .perant h4{
+    font-size: 1.3em;
+    color: var( --text-color-tow);
+}
+.global-input form .radios>span:first-child{
+    width: 25%;
+}
+.global-input form .radios .chose{
+    width: calc(100% - 25%);
+}
+.global-input form .inputs,
+.global-input .buttoms{
+    width: 85%;
+}
+.add{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+    background-color: var(--three-color);
+    color: var( --secend-color);
+    border-radius: 50%;
+    
+}
+.atherInfo {
+    width: 85%;
+}
+.atherInfo .inputs label{
+    width: 45%;
+}
+.global-input .all:not(:nth-child(1)){
+    border-top: 3px solid #63a1f2ac;
+}
+.global-input .buttoms button{
+    margin: 0;
+}
+.global-input .drop{
+    top: 10px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5em;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+/* ______________________end____section________________________ */
+
+

@@ -13,10 +13,10 @@ class CreateProductionPTable extends Migration
      */
     public function up()
     {
-        Schema::create('production_p', function (Blueprint $table) {
-             $table->unsignedBigInteger('id_PP')->primary();
-             $table->foreign('id_PP')->references('idP')->on('d_proffesseur');
-             $table->double('TotalPP' , 5);
+        Schema::create('production_ps', function (Blueprint $table) {
+             $table->unsignedBigInteger('id_PP');
+             $table->foreign('id_PP')->references('idP')->on('d_proffesseurs');
+             $table->double('TotalPP' , 5)->default(0);
              $table->timestamps();
         });
     }

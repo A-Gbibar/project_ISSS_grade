@@ -44,7 +44,8 @@
             <span class="close d-flex align-items-center justify-content-center" onclick="btnCommencer();"><i class="bi bi-x-lg"></i></span>
             <h2 class="w-100 text-center fw-bold text-capitalize mb-3 mt-2">Donnée personnelles</h2>
 
-            <form action="" method="" class="p-3 d-flex align-items-center justify-content-center flex-wrap">
+            <form action="{{route('proffesseur.store')}}" method="POST" class="p-3 d-flex align-items-center justify-content-center flex-wrap">
+            @csrf
             <div class="inputs  d-flex align-items-center justify-content-center flex-wrap">
                 <label class="lastName ">
                     <input type="text" name="lastName" class="fild w-100" required>

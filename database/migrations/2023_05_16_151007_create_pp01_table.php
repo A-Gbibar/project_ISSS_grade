@@ -13,7 +13,7 @@ class CreatePP01Table extends Migration
      */
     public function up()
     {
-        Schema::create('pp01', function (Blueprint $table) {
+        Schema::create('pp01s', function (Blueprint $table) {
             $table->bigIncrements('idPP01');
             $table->enum('type' , ['Ouvrages' , 'manuels' , 'liver']);
             $table->string('maisonEdition');
@@ -25,7 +25,7 @@ class CreatePP01Table extends Migration
             $table->integer('NDepot' );
             $table->double('note')->whereNotNull('NCour')->default(0);
             $table->unsignedBigInteger('idProuduction');
-            $table->foreign('idProuduction')->references('id_PP')->on('production_p');
+            $table->foreign('idProuduction')->references('id_PP')->on('production_ps');
             $table->timestamps();
         });
     }

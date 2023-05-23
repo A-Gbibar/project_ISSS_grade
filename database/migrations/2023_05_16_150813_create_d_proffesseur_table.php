@@ -14,15 +14,15 @@ class CreateDProffesseurTable extends Migration
      */
     public function up()
     {
-        Schema::create('d_proffesseur', function (Blueprint $table) {
-            $table->unsignedBigInteger('idP')->primary();
+        Schema::create('d_proffesseurs', function (Blueprint $table) {
+            $table->unsignedBigInteger('idP')->autoIncrement();
             $table->string('nom');
             $table->string('prenom');
             $table->string('tel');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('departATT');
             $table->date('dateRecrut');
-            $table->string('PPR');
+            $table->string('PPR')->unique();
             $table->string('grad');
             $table->date('dateEffet');
             $table->enum('TypeAvancement' , array('exceptionnel' , 'rapide' , 'normal'));

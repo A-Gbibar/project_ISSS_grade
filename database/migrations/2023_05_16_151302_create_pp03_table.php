@@ -13,7 +13,7 @@ class CreatePp03Table extends Migration
      */
     public function up()
     {
-        Schema::create('pp03', function (Blueprint $table) {
+        Schema::create('pp03s', function (Blueprint $table) {
             $table->bigIncrements('idPP03');
             $table->string('diaporamas');
             $table->string('lineSiteWeb');
@@ -24,7 +24,7 @@ class CreatePp03Table extends Migration
             $table->integer('Nvideo')->whereNotNull('Nvideo')->default(0);
             $table->double('NTotal' )->whereNotNull('NTotal')->default(0);
             $table->unsignedBigInteger('idProuduction');
-            $table->foreign('idProuduction')->references('id_PP')->on('production_p');
+            $table->foreign('idProuduction')->references('id_PP')->on('production_ps');
             $table->timestamps();
         });
     }

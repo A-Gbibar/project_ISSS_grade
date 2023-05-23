@@ -13,7 +13,7 @@ class CreateConfigNoteTable extends Migration
      */
     public function up()
     {
-        Schema::create('config_note', function (Blueprint $table) {
+        Schema::create('config_notes', function (Blueprint $table) {
             $table->double('NPP01')->whereNotNull('NPP01');
             $table->double('NPP01_Max')->whereNotNull('NPP01_Max');
             $table->double('NPP02')->whereNotNull('NPP02');

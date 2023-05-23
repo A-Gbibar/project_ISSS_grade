@@ -13,7 +13,7 @@ class CreatePP02Table extends Migration
      */
     public function up()
     {
-        Schema::create('pp02', function (Blueprint $table) {
+        Schema::create('pp02s', function (Blueprint $table) {
             $table->bigIncrements('idPP02');
             $table->string('TD');
             $table->string('cours');
@@ -27,7 +27,7 @@ class CreatePP02Table extends Migration
             $table->integer('NTP')->whereNotNull('NTP')->default(0);
             $table->double('NTotal' )->whereNotNull('NTotal')->default(0);
             $table->unsignedBigInteger('idProuduction');
-            $table->foreign('idProuduction')->references('id_PP')->on('production_p');
+            $table->foreign('idProuduction')->references('id_PP')->on('production_ps');
 
             $table->timestamps();
         });

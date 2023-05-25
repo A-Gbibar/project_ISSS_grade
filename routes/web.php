@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-}); 
+Route::get('/' , 'ControllerCreate@wolcome')->name('wolcome.index');
 Route::get('/produtionP/{idP}' , 'ControllerCreate@index')->name('production.index');
-
 Route::post('/CreateP' , 'ControllerCreate@store')->name('proffesseur.store');
-
-
-
-Route::get( '/show/{idP}' , 'ControllerGet@showAction' );
+Route::post('/connection' , 'ControllerCreate@go')->name('connection.go');
+Route::post('/CreatePP001/{idP}' , 'ControllerCreate@storePP01')->name('CreatePP001.store');
+Route::get('/configNote' , 'ControllerSetting@showconfig')->name('Setting.ShowconfigNote');
+Route::put('/configNote/{id}' ,'ControllerSetting@storeConfig' )->name('Setting.storeConfig');
+Route::get('/calcPP01/{id}' , 'ControllerCalc@calcPP01')->name('calcPP01');
+Route::get('/createPP02/{id}' , 'ControllerCreate@showPP02')->name('createPP02.show');

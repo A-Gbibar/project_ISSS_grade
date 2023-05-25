@@ -34,7 +34,7 @@
         <div class="buttoms">
 
             <button class=""  onclick="btnCommencer()"> Commencer </button>
-            <button class="">connexion</button>
+            <button class="" onclick="btnConnexion()">connexion</button>
         </div>
     </div>
 
@@ -121,6 +121,36 @@
 
         </div>
     </div>
+
+    <div class="connexion d-flex align-items-center justify-content-center flex-column">
+        <div class="global-input p-3 d-flex align-items-center flex-column">
+            <span class="close d-flex align-items-center justify-content-center" onclick="btnConnexion();"><i class="bi bi-x-lg"></i></span>
+            <h2 class="w-100 text-center fw-bold text-capitalize mb-3 mt-2">Connexion</h2>
+
+            <form action="{{route('connection.go')}}" method="POST" class="p-3 d-flex align-items-center justify-content-center flex-wrap">
+            @csrf
+            <div class="inputs  d-flex align-items-center justify-content-center flex-wrap">
+                <label class="lastName ">
+                    <input type="text" name="id" class="fild w-100" required>
+                    <span>Id proffesseurs</span>
+                </label>
+
+                <label class="firstName">
+                    <input type="text" name="UserName" class="fild w-100" required>
+                    <span>UserName proffesseurs</span>
+                </label>
+
+            </div>
+
+            <div class="buttoms mt-4">
+
+                <button class=""> connexion </button>
+                <span class="btn btnClose" onclick="btnConnexion();">Close</span>
+            </div>
+            </form>
+
+        </div>
+    </div>
     
 
 
@@ -131,9 +161,12 @@
 
             // let btnCommencer = document.getElementById("Commencer");
             let Commencer    = document.querySelector('.Commencer');
-
+            let connexion    = document.querySelector('.connexion');
              function btnCommencer(){
                 Commencer.classList.toggle('active');
+            }
+             function btnConnexion(){
+                connexion.classList.toggle('active');
             }
 
     </script>

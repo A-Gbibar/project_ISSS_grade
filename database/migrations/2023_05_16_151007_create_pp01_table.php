@@ -15,14 +15,15 @@ class CreatePP01Table extends Migration
     {
         Schema::create('pp01s', function (Blueprint $table) {
             $table->bigIncrements('idPP01');
-            $table->enum('type' , ['Ouvrages' , 'manuels' , 'liver']);
+            $table->enum('type', ['Ouvrages', 'manuels', 'liver']);
+            $table->string('isbn');
             $table->string('maisonEdition');
             $table->string('avoir');
             $table->string('titre');
             $table->string('auteur');
             $table->string('niveu');
             $table->date('dateEdition');
-            $table->integer('NDepot' );
+            $table->integer('NDepot')->default(0);
             $table->double('note')->whereNotNull('NCour')->default(0);
             $table->unsignedBigInteger('idProuduction');
             $table->foreign('idProuduction')->references('id_PP')->on('production_ps');

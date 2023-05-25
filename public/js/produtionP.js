@@ -16,17 +16,17 @@ add.onclick = function () {
     <span class=" d-flex align-items-center justify-content-center">Type exemplaire</span>
     <div class="chose d-flex justify-content-center position-relative">
         <label class="Exceptionnel">
-            <input type="radio" name="type" value="Ouvrages" class="fild w-100" required>
+            <input type="radio" name="type[]" value="Ouvrages" class="fild w-100" required>
             <span>Ouvrages</span>
         </label>
 
         <label class="Rapide">
-            <input type="radio" name="type" value="manules" class="fild w-100" required>
+            <input type="radio" name="type[]" value="manuels" class="fild w-100" required>
             <span>manules</span>
         </label>
 
         <label class="Normal">
-            <input type="radio" name="type" value="Normal" class="fild w-100" required>
+            <input type="radio" name="type[]" value="Normal" class="fild w-100" required>
             <span>Livres</span>
         </label>
 
@@ -34,7 +34,7 @@ add.onclick = function () {
 </div>
 <div class="inputs mt-4">
     <label class="Isbn w-100 position-relative">
-        <input type="text" name="Isbn" class="fild w-100" required>
+        <input type="text" name="isbn[]" class="fild w-100" required>
         <span>ISBN / ISSN</span>
     </label>
 </div>
@@ -42,27 +42,27 @@ add.onclick = function () {
 <div class="atherInfo ">
     <div class="inputs w-100 gap-4 mt-4 d-flex justify-content-between align-content-center flex-wrap"">
         <label class="maisonEdition position-relative">
-            <input type="text" name="maisonEdition" class="fild w-100" required>
+            <input type="text" name="maisonEdition[]" class="fild w-100" required>
             <span>maison Edition</span>
         </label>
         <label class="avoir position-relative">
-            <input type="text" name="avoir" class="fild w-100" required>
+            <input type="text" name="avoir[]" class="fild w-100" required>
             <span>Avoir</span>
         </label>
         <label class="maisonEdition position-relative">
-            <input type="text" name="titre" class="fild w-100" required>
+            <input type="text" name="titre[]" class="fild w-100" required>
             <span>titre</span>
         </label>
         <label class="auteur position-relative">
-            <input type="text" name="auteur" class="fild w-100" required>
+            <input type="text" name="auteur[]" class="fild w-100" required>
             <span>auteur</span>
         </label>
         <label class="niveu position-relative">
-            <input type="text" name="niveu" class="fild w-100" required>
+            <input type="text" name="niveu[]" class="fild w-100" required>
             <span>niveu</span>
         </label>
         <label class="DateEdition position-relative ">
-            <input type="date" name="DateEdition" class="fild w-100" required>
+            <input type="date" name="dateEdition[]" class="fild w-100" required>
             <span>Date Edition</span>
         </label>
     </div>
@@ -75,4 +75,14 @@ add.onclick = function () {
 function delcolumns(ref){
     let remove = ref.parentNode.parentNode;
     remove.removeChild(ref.parentNode);
+}
+
+
+//________________________ show Crad and close Crad 
+function clickClose() {
+    document.querySelector('.card-all').classList.toggle('active');
+    document.querySelector('.cradClose').classList.toggle('active');
+    setTimeout(()=>{
+        document.querySelector('.cradClose').classList.remove('active');
+} , 20000)
 }

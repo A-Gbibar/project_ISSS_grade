@@ -38,7 +38,8 @@
 
 /* _______________________________start__popup____________________________________ */
 
-.Commencer {
+.Commencer,
+.connexion {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.066);
     position: absolute;
@@ -49,7 +50,8 @@
     transition: var(--main-trantion);
 }
 
-.Commencer.active {
+.Commencer.active,
+.connexion.active {
     opacity: 1;
     visibility: visible;
 }
@@ -66,7 +68,8 @@
 
 }
 
-.Commencer.active .global-input {
+.Commencer.active .global-input,
+.connexion.active .global-input {
         height: 97vh;
 }
 

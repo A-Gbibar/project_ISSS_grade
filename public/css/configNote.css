@@ -1,0 +1,50 @@
+body{
+    min-height: 100vh;
+    background-color: var(--secend-color);
+}
+
+nav{
+    position: sticky;
+    height: 86px;
+}
+ section .table td:not(:last-child){
+    border-right: 1px solid  #63a1f2ac;
+    width: calc(100% / 3);
+
+}
+
+section .table  th{
+background-color: #63a1f276 ;
+color: #022859;
+}
+
+section .table  th:nth-child(even){
+background-color: #63a1f2af ;
+
+}
+section .table thead th{
+    padding: 10px;
+
+}
+section .table td:first-child{
+    line-height: 2.5;
+}
+section .table td input{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    padding: 10px;
+    border-radius: var(  --main-border);
+}
+
+section .table td input:focus{
+    box-shadow: var(   --border-shadow);
+}
+section .table   button{
+    width: 90%;
+    padding: 2px;
+    margin: 7px 0;
+}
+

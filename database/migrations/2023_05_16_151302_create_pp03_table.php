@@ -15,13 +15,10 @@ class CreatePp03Table extends Migration
     {
         Schema::create('pp03s', function (Blueprint $table) {
             $table->bigIncrements('idPP03');
-            $table->string('diaporamas');
-            $table->string('lineSiteWeb');
-            $table->string('lineSupportVideo');
-            $table->date('dateDiffusion');
+            $table->date('dateDiffusion')->nullable();
+            $table->string('lineSiteVideo')->nullable();
             $table->double('NDiaporames')->whereNotNull('NDiaporames')->default(0);
-            $table->integer('NsiteWeb')->whereNotNull('NsiteWeb')->default(0);
-            $table->integer('Nvideo')->whereNotNull('Nvideo')->default(0);
+            $table->double('NvideoSiteWeb')->whereNotNull('NvideoSiteWeb')->default(0);
             $table->double('NTotal' )->whereNotNull('NTotal')->default(0);
             $table->unsignedBigInteger('idProuduction');
             $table->foreign('idProuduction')->references('id_PP')->on('production_ps');

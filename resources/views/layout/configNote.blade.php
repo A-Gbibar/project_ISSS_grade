@@ -1,24 +1,10 @@
 @extends('layout.app')
-
+@section('linkCss')
+<!-- link config css -->
+<link rel="stylesheet" href="../css/configNote.css">
+@endsection
 @section('container')
-    <!-- link config css -->
-    <link rel="stylesheet" href="../css/configNote.css">
-    </head>
 
-    <body class="">
-
-        <nav class="">
-            <div class="p-2 container perant d-flex justify-content-between align-items-center">
-                <div class="logoHassan-1er">
-                    <img src="../imag/loogoHassan1.png" alt="">
-                </div>
-                <p class="title text-center">universite hassan <span class="text-lowercase">1er</span> Institut suerieur des
-                    sciences de la sante -SETTAT-</p>
-                <div class="logoISSS">
-                    <img src="../imag/isssLogo.svg" alt="">
-                </div>
-            </div>
-        </nav>
 
 
         <section class="m-4">

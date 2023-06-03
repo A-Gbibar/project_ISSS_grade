@@ -21,4 +21,11 @@ Route::post('/CreatePP001/{idP}' , 'ControllerCreate@storePP01')->name('CreatePP
 Route::get('/configNote' , 'ControllerSetting@showconfig')->name('Setting.ShowconfigNote');
 Route::put('/configNote/{id}' ,'ControllerSetting@storeConfig' )->name('Setting.storeConfig');
 Route::get('/calcPP01/{id}' , 'ControllerCalc@calcPP01')->name('calcPP01');
-Route::get('/createPP02/{id}' , 'ControllerCreate@showPP02')->name('createPP02.show');
+
+Route::get('/createPP02/{id}' , 'ControlllerPPO02@show')->name('createPP02.show');
+Route::post('/createPP02/{id}' , 'ControlllerPPO02@store')->name('createPP02.store');
+
+Route::get('/createPP03/{id}' , 'ControllerPP03@show')->name('createPP03.show');
+Route::post('/createPP03/{id}' , 'ControllerPP03@store')->name('createPP03.store');
+// Next Step EP
+Route::get('/nextStep/{id}' , 'ControllerEP01@index')->name('nextStep.index');

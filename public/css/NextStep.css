@@ -1,0 +1,104 @@
+body {
+    background-color: var(--secend-color);
+    min-height: 100vh;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  
+.card {
+    border: none;
+    border: var(--main-border);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px, var(--border-shadow);
+    animation: entroCard 1s ease-in-out;
+}
+
+@keyframes entroCard {
+    0% {
+        opacity: 0;
+        width: 60%;
+    }
+
+    100% {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.card .title {
+    width: 100%;
+    height: 100%;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-bottom: 3px solid #63a1f2ac;
+    color: var(--three-color);
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.card .title i {
+    padding: 3px 10px;
+    border-radius: var(--main-border);
+    cursor: pointer;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.card .card-body {
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+.card .card-body p {
+    text-transform: capitalize;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.card .card-body p span {
+    font-size: 1.4em;
+    color: var(--sub-color-tow);
+}
+
+.card .card-body .traver {
+    color: var(--text-color-tow);
+}
+
+.card .card-body .traver ul li {
+    font-size: 0.8em;
+}
+
+.card .card-body p{
+    font-size: 1.2em;
+    font-weight: 700;
+    animation:animationEtap 1.2s ease-in-out ;    
+}
+.card .card-body ol{
+    width: 37%;
+    overflow: hidden;
+   
+}
+.card .card-body ol li span {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .card-body ol li i{
+    color: var(  --green-color);
+}
+.card .card-body ol li{
+    animation:animationEtap 2s ease-in-out ;
+}
+@keyframes animationEtap {
+    0%{
+        opacity: 0;
+        margin-left: -100px;
+        visibility: hidden;
+    }
+    100%{
+    opacity: 1;
+    margin-left: 0;
+    visibility: visible;
+    }
+}

@@ -1,9 +1,4 @@
 
-window.addEventListener('scroll', function () {
-    const header = document.querySelector('nav');
-    header.classList.toggle("sticky", window.scrollY > 0);
-});
-
 //add pp01
 
 let add = document.querySelector(".add");
@@ -75,14 +70,4 @@ add.onclick = function () {
 function delcolumns(ref){
     let remove = ref.parentNode.parentNode;
     remove.removeChild(ref.parentNode);
-}
-
-
-//________________________ show Crad and close Crad 
-function clickClose() {
-    document.querySelector('.card-all').classList.toggle('active');
-    document.querySelector('.cradClose').classList.toggle('active');
-    setTimeout(()=>{
-        document.querySelector('.cradClose').classList.remove('active');
-} , 20000)
 }

@@ -69,7 +69,6 @@ class ControllerCreate extends Controller
     {
      
        foreach($request->titre as $key=>$data){
-        echo $key . "<br>";
         $createPP01 = pp01::create(
                 [
                     // 'type' => $request->type[$key],
@@ -88,14 +87,4 @@ class ControllerCreate extends Controller
        return redirect()->route('calcPP01', $id  );
     }
 
-
-    public function showPP02($id){
-        $dataPP01 = pp01::all()->where('idProuduction' , $id);
-        $note = pp01::where('idProuduction' , $id)->first();
-        if($note == null){
-            return redirect()->route('production.index' , $id );
-        }   
-        return view('layout.productionPP02' , [ 'note' => $note->note ,  'datas' => $dataPP01]);
-    }   
-
-}
+} 

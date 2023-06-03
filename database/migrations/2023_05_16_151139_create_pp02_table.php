@@ -15,20 +15,20 @@ class CreatePP02Table extends Migration
     {
         Schema::create('pp02s', function (Blueprint $table) {
             $table->bigIncrements('idPP02');
-            $table->string('TD');
-            $table->string('cours');
-            $table->string('examens avec correction');
-            $table->string('TP');
+            $table->enum('TypePolycopies', ['Cours' , 'TP' , 'TD' , 'Examens' , 'Auter']);
             $table->date('dateDiffusion');
-            $table->enum('typeTravail' , ['individeuel' , 'collectif']);
+            $table->year('AnneeElaboration');
+            $table->string('NiveauEtude');
+            $table->enum('typeTravail' , ['individuel' , 'collectif']);
+            $table->integer('NomberCollectif')->where('typeTravail' , 'collectif')->nullable();
             $table->double('NCour')->whereNotNull('NCour')->default(0);
             $table->integer('NTD')->whereNotNull('NTD')->default(0);
             $table->integer('NExam')->whereNotNull('NExam')->default(0);
             $table->integer('NTP')->whereNotNull('NTP')->default(0);
+            $table->integer('NAuter')->whereNotNull('NAuter')->default(0);
             $table->double('NTotal' )->whereNotNull('NTotal')->default(0);
             $table->unsignedBigInteger('idProuduction');
             $table->foreign('idProuduction')->references('id_PP')->on('production_ps');
-
             $table->timestamps();
         });
     }

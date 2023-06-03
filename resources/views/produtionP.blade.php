@@ -1,24 +1,11 @@
 @extends('layout.app')
-
+@section('title') PP01 @endsection
+@section('linkCss')
+<!-- link css -->
+<link rel="stylesheet" href="../css/pdoductinP.css">
+@endsection
 @section('container')
-    <!-- link css -->
-    <link rel="stylesheet" href="../css/pdoductinP.css">
-</head>
 
-<body class="">
-
-    <nav class="">
-        <div class="p-2 container perant d-flex justify-content-between align-items-center">
-            <div class="logoHassan-1er">
-                <img src="../imag/loogoHassan1.png" alt="">
-            </div>
-            <p class="title text-center">universite hassan <span class="text-lowercase">1er</span> Institut suerieur des
-                sciences de la sante -SETTAT-</p>
-            <div class="logoISSS">
-                <img src="../imag/isssLogo.svg" alt="">
-            </div>
-        </div>
-    </nav>
 
     <header class="container d-flex justify-content-center align-items-center flex-column">
         <div class="welcome position-relative w-100 p-3 d-flex justify-content-around align-items-center flex-wrap">
@@ -112,8 +99,8 @@
                 </div>
 
                 <div class="buttoms mt-4">
-                    <button class="me-4" > continuer </button>
-                    <button class=""> Retour </button>
+                    <button class="me-4" type="submit" >continuer  </button>
+                    <a href="{{route('wolcome.index')}}" class=""><button class="" type="button">  Retour</button></a> 
 
                 </div>
                     
@@ -122,5 +109,8 @@
             </div>
         </div>
     </section>
+
+    <script src="../js/produtionP.js"> </script>
+
 
 @endsection

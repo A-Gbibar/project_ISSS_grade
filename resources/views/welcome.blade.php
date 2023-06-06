@@ -33,7 +33,7 @@
         </div>
         <div class="buttoms">
 
-            <button class=""  onclick="btnCommencer()"> Commencer </button>
+            <button class="" onclick="btnCommencer()"> Commencer </button>
             <button class="" onclick="btnConnexion()">connexion</button>
         </div>
     </div>
@@ -41,134 +41,147 @@
 
     <div class="Commencer d-flex align-items-center justify-content-center flex-column">
         <div class="global-input p-3 d-flex align-items-center flex-column">
-            <span class="close d-flex align-items-center justify-content-center" onclick="btnCommencer();"><i class="bi bi-x-lg"></i></span>
+            <span class="close d-flex align-items-center justify-content-center" onclick="btnCommencer();"><i
+                    class="bi bi-x-lg"></i></span>
             <h2 class="w-100 text-center fw-bold text-capitalize mb-3 mt-2">Donnée personnelles</h2>
 
-            <form action="{{route('proffesseur.store')}}" method="POST" class="p-3 d-flex align-items-center justify-content-center flex-wrap">
-            @csrf
-            <div class="inputs  d-flex align-items-center justify-content-center flex-wrap">
-                <label class="lastName ">
-                    <input type="text" name="lastName" class="fild w-100" required>
-                    <span>Nom d'utilisateur</span>
-                </label>
-
-                <label class="firstName">
-                    <input type="text" name="firstName" class="fild w-100" required>
-                    <span>Prénom d'utilisateur</span>
-                </label>
-
-                <label class="tel">
-                    <input type="tel" name="tel" class="fild w-100" required>
-                    <span>Tél d'utilisateur</span>
-                </label>
-
-                <label class="emial">
-                    <input type="text" name="emial" class="fild w-100" required>
-                    <span>E-mail d'utilisateur</span>
-                </label>
-
-                <label class="departAtt">
-                    <input type="text" name="departAtt" class="fild w-100" required>
-                    <span>Département d'attache</span>
-                </label>
-
-                <label class="dateRercut">
-                    <input type="date" name="dateRecut" class="fild w-100" required>
-                    <span>Date de recrutement</span>
-                </label>
-
-                <label class="PPR">
-                    <input type="text" name="PPR" class="fild w-100" required>
-                    <span>P.P.R. (DOTI)</span>
-                </label>
-
-                <label class="gradeActuel">
-                    <input type="text" name="gradeActuel" class="fild w-100" required>
-                    <span>Grade actuel</span>
-                </label>
-
-                <label class="dateEffet">
-                    <input type="date" name="dateEffet" class="fild w-100" required>
-                    <span>Date d'effet</span>
-                </label>
-            </div>
-                <div class="radios mt-3  d-flex align-items-center justify-content-around ">
-                    <span class = "pe-4 d-flex align-items-center">Type d'avancement concerné</span>
-                <div class="chose">
-                    <label class="Exceptionnel">
-                        <input type="radio" name="type" value="Exceptionnel" class="fild w-100" required>
-                        <span>Exceptionnel</span>
+            <form action="{{ route('proffesseur.store') }}" method="POST"
+                class="p-3 d-flex align-items-center justify-content-center flex-wrap">
+                @csrf
+                <div class="inputs  d-flex align-items-center justify-content-center flex-wrap">
+                    <label class="lastName ">
+                        <input type="text" name="lastName" class="fild w-100" required>
+                        <span>Nom d'utilisateur</span>
                     </label>
 
-                    <label class="Rapide">
-                        <input type="radio" name="type" value="Rapide" class="fild w-100" required>
-                        <span>Rapide</span>
+                    <label class="firstName">
+                        <input type="text" name="firstName" class="fild w-100" required>
+                        <span>Prénom d'utilisateur</span>
                     </label>
 
-                    <label class="Normal">
-                        <input type="radio" name="type" value="Normal" class="fild w-100" required>
-                        <span>Normal</span>
+                    <label class="tel">
+                        <input type="tel" name="tel" class="fild w-100" required>
+                        <span>Tél d'utilisateur</span>
+                    </label>
+
+                    <label class="emial">
+                        <input type="text" name="emial" class="fild w-100" required>
+                        <span>E-mail d'utilisateur</span>
+                    </label>
+
+                    <label class="departAtt">
+                        <input type="text" name="departAtt" class="fild w-100" required>
+                        <span>Département d'attache</span>
+                    </label>
+
+                    <label class="dateRercut">
+                        <input type="date" name="dateRecut" class="fild w-100" required>
+                        <span>Date de recrutement</span>
+                    </label>
+
+                    <label class="PPR">
+                        <input type="text" name="PPR" class="fild w-100" required>
+                        <span>P.P.R. (DOTI)</span>
+                    </label>
+
+                    <label class="gradeActuel">
+                        <input type="text" name="gradeActuel" class="fild w-100" required>
+                        <span>Grade actuel</span>
+                    </label>
+
+                    <label class="dateEffet">
+                        <input type="date" name="dateEffet" class="fild w-100" required>
+                        <span>Date d'effet</span>
                     </label>
                 </div>
-            </div>
+                <div class="radios mt-3  d-flex align-items-center justify-content-around ">
+                    <span class="pe-4 d-flex align-items-center">Type d'avancement concerné</span>
+                    <div class="chose">
+                        <label class="Exceptionnel">
+                            <input type="radio" name="type" value="Exceptionnel" class="fild w-100" required>
+                            <span>Exceptionnel</span>
+                        </label>
 
-            <div class="buttoms mt-4">
+                        <label class="Rapide">
+                            <input type="radio" name="type" value="Rapide" class="fild w-100" required>
+                            <span>Rapide</span>
+                        </label>
 
-                <button class=""> Create </button>
-                <span class="btn btnClose" onclick="btnCommencer();">Close</span>
-            </div>
+                        <label class="Normal">
+                            <input type="radio" name="type" value="Normal" class="fild w-100" required>
+                            <span>Normal</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="buttoms mt-4">
+
+                    <button class=""> Create </button>
+                    <span class="btn btnClose" onclick="btnCommencer();">Close</span>
+                </div>
             </form>
 
         </div>
     </div>
 
-    <div class="connexion d-flex align-items-center justify-content-center flex-column">
+    <div class="connexion d-flex align-items-center justify-content-center flex-column @error('UserName') active @enderror">
         <div class="global-input p-3 d-flex align-items-center flex-column">
-            <span class="close d-flex align-items-center justify-content-center" onclick="btnConnexion();"><i class="bi bi-x-lg"></i></span>
+            <span class="close d-flex align-items-center justify-content-center" onclick="btnConnexion();"><i
+                    class="bi bi-x-lg"></i></span>
             <h2 class="w-100 text-center fw-bold text-capitalize mb-3 mt-2">Connexion</h2>
 
-            <form action="{{route('connection.go')}}" method="POST" class="p-3 d-flex align-items-center justify-content-center flex-wrap">
-            @csrf
-            <div class="inputs  d-flex align-items-center justify-content-center flex-wrap">
-                <label class="lastName ">
-                    <input type="text" name="id" class="fild w-100" required>
-                    <span>Id proffesseurs</span>
-                </label>
+            <form action="{{ route('connection.login') }}" method="POST"
+                class="p-3 h-100 d-flex align-items-center justify-content-center flex-column">
+                @csrf
+                <div class="inputs  d-flex align-items-center justify-content-center flex-wrap">
+                    <label class="firstName w-100">
+                        <input type="text" name="UserName" class="fild w-100" required>
+                        <span>UserName proffesseurs</span>
+                    </label>
+                    @error('UserName')
+                        <span class="error">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                    <label class="lastName w-100">
+                        <input type="text" name="PPR" class="fild w-100" required>
+                        <span class="ps-3">P.P.R</span>
+                    </label>
+                    @error('PPR')
+                        <span class="error">
+                            {{ $message }}
+                        </span>
+                    @enderror
 
-                <label class="firstName">
-                    <input type="text" name="UserName" class="fild w-100" required>
-                    <span>UserName proffesseurs</span>
-                </label>
+                </div>
 
-            </div>
+                <div class="buttoms w-100 d-flex justify-content-end mt-4">
 
-            <div class="buttoms mt-4">
-
-                <button class=""> connexion </button>
-                <span class="btn btnClose" onclick="btnConnexion();">Close</span>
-            </div>
+                    <button class=""> connexion </button>
+                    <span class="btn btnClose" onclick="btnConnexion();">Close</span>
+                </div>
             </form>
 
         </div>
     </div>
-    
+
 
 
     <!-- link js bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // let btnCommencer = document.getElementById("Commencer");
+        let Commencer = document.querySelector('.Commencer');
+        let connexion = document.querySelector('.connexion');
 
-            // let btnCommencer = document.getElementById("Commencer");
-            let Commencer    = document.querySelector('.Commencer');
-            let connexion    = document.querySelector('.connexion');
-             function btnCommencer(){
-                Commencer.classList.toggle('active');
-            }
-             function btnConnexion(){
-                connexion.classList.toggle('active');
-            }
+        function btnCommencer() {
+            Commencer.classList.toggle('active');
+        }
 
+        function btnConnexion() {
+            connexion.classList.toggle('active');
+        }
     </script>
 
 

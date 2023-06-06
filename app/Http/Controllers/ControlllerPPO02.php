@@ -16,12 +16,18 @@ class ControlllerPPO02 extends Controller
 
     public function show($id)
     {
-        $dataPP01 = pp01::all()->where('idProuduction', $id);
+    if(isset( $_GET['conection'])){
+        $Existing = pp02::where('idProuduction' , $id)->first();
+        if( isset($Existing)  ){
+            return redirect()->route('createPP03.show' ,  ['id' => $id , "conection" => "good"]);
+        }
         $note = pp01::where('idProuduction', $id)->first();
         if ($note == null) {
             return redirect()->route('production.index', $id);
         }
         return view('layout.productionPP02', ['id' => $id]);
+    }
+    return back();
     }
 
     public function store($id, Request $request)

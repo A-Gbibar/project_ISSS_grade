@@ -31,7 +31,7 @@
                 </ol>
             </div>
             <div class=" buttoms mt-4 w-100 text-center" >
-                <button class="me-4 w-75"> continuer </button>
+                <a href="{{route('EP01.show' , ['id' => $id , 'conection' => 'good' ] )}}" class="text-decoration-none text-white">   <button class="me-4 w-75"  >continuer </button></a> 
             </div>
         </div>
     </div>

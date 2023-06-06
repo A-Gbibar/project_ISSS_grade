@@ -36,8 +36,7 @@
         </div>
 
     </nav>
-
-
+    
     @yield('container')
     
     <script src="../js/app.js"> </script>

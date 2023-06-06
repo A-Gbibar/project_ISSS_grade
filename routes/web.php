@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/' , 'ControllerCreate@wolcome')->name('wolcome.index');
 Route::get('/produtionP/{idP}' , 'ControllerCreate@index')->name('production.index');
 Route::post('/CreateP' , 'ControllerCreate@store')->name('proffesseur.store');
-Route::post('/connection' , 'ControllerCreate@go')->name('connection.go');
+
+Route::post('/connection' , 'controllerLogin@login')->name('connection.login');
+
 Route::post('/CreatePP001/{idP}' , 'ControllerCreate@storePP01')->name('CreatePP001.store');
 Route::get('/configNote' , 'ControllerSetting@showconfig')->name('Setting.ShowconfigNote');
 Route::put('/configNote/{id}' ,'ControllerSetting@storeConfig' )->name('Setting.storeConfig');
@@ -29,3 +31,8 @@ Route::get('/createPP03/{id}' , 'ControllerPP03@show')->name('createPP03.show');
 Route::post('/createPP03/{id}' , 'ControllerPP03@store')->name('createPP03.store');
 // Next Step EP
 Route::get('/nextStep/{id}' , 'ControllerEP01@index')->name('nextStep.index');
+Route::get('EP01/{id}' , 'ControllerEP01@show')->name('EP01.show');
+Route::post('EP01/{id}' , 'ControllerEP01@store')->name('EP01.store');
+
+
+// Route::get('/home', 'HomeController@index')->name('home');

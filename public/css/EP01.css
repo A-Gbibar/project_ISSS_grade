@@ -1,0 +1,25 @@
+
+.global-input .styleTow{
+    grid-template-columns: 310px 1fr;
+    box-shadow: var( --border-shadow);
+    height: 70px;
+    border-radius: var(--main-border);
+    box-shadow: var(--border-shadow);
+}
+.global-input .styleTow span {
+    padding: 0 20px;
+}
+.global-input .styleTow span:first-child{
+    color:var(--three-color);
+    border-right: 3px solid #63a1f2ac;
+}
+
+input[type=file]::file-selector-button{
+    padding-top:7px ;
+    padding-bottom:7px ;
+    cursor: pointer;
+}
+/* .showPDF{
+    width: 88%;
+    min-height: 60vh;
+} */

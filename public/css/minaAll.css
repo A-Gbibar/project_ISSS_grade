@@ -78,7 +78,8 @@ nav p span{
 
 
 .buttoms button,
-.buttoms .btnClose {
+.buttoms .btnClose,
+input[type=file]::file-selector-button {
     position: relative;
     margin: 0 20px;
     background-color: var(--main-color);
@@ -248,4 +249,10 @@ nav p span{
 .titles span:nth-child(2){
     font-size: 0.7em;
     color: var( --text-color-tow);
+}
+.error{
+    color: red;
+    text-align: start;
+    width: 100%;
+    padding-left: 20px;
 }

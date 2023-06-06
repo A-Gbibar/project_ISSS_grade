@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\DB;
 class ControllerPP03 extends Controller
 {
     public function show($id){
+    if(isset( $_GET['conection'])){
+        $Existing = pp03::where('idProuduction' , $id)->first();
+        if( isset($Existing)  ){
+            return redirect()->route('nextStep.index' ,  ['id' => $id , "conection" => "good"]);
+        }
+    }
+    
         return view('layout.productionPP03' , [ 'id' => $id ]);
     }
     public function store($id , Request $request){

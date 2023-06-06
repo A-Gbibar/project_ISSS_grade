@@ -20,6 +20,13 @@ class ControllerCreate extends Controller
 
     public function index($idP)
     {
+    
+       if(isset( $_GET['conection'])){
+        $Existing = pp01::where('idProuduction' , $idP)->first();
+     if( isset($Existing)){
+            return redirect()->route('createPP02.show' ,  ['id' => $idP , "conection" => "good"]);
+        }
+  
         $datas = d_proffesseur::where('idP', $idP)->first();
         if (isset($datas)) {
             return view('/produtionP', [
@@ -31,6 +38,8 @@ class ControllerCreate extends Controller
             ]);
         }
         return redirect()->route('wolcome.index');
+    }
+    return back();
     }
 
     public function store(Request $reqProf)
@@ -49,25 +58,10 @@ class ControllerCreate extends Controller
             'TypeAvancement' => $reqProf->type,
         ]);
         $createProduction = production_p::create(['id_PP' => $createP->id]);
-        return redirect()->route('production.index', $createP->id);
+        return redirect()->route('production.index', ['idP' => $createP->id ,  "conection" => "good"] );
     }
-
-    public function go(Request $request)
-    {
-        if (isset($request)) {
-            $id = $request->id;
-            $userName = $request->UserName;
-            $proffesseur = d_proffesseur::where('idP', $id)->where('nom', $userName)->first();
-            if (isset($proffesseur)) {
-                return redirect()->route('production.index', $id);
-            }
-        }
-        return redirect()->route('wolcome.index');
-    }
-
     public function storePP01($id, Request $request)
     {
-     
        foreach($request->titre as $key=>$data){
         $createPP01 = pp01::create(
                 [

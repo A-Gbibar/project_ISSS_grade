@@ -67,10 +67,18 @@
     transition: var(--main-trantion);
 
 }
+.connexion .global-input{
+    width: 65vw;
+    overflow: hidden;
+}
+
 
 .Commencer.active .global-input,
 .connexion.active .global-input {
         height: 97vh;
+}
+.connexion.active .global-input{
+    height: 72vh;
 }
 
 .global-input form .inputs label {

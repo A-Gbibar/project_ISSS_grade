@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="../css/minaAll.css">
-    @yield("linkCss")
+    <link rel="stylesheet" href="../css/pdoductinP.css">
+
+    <!-- link config css -->
+    <link rel="stylesheet" href="../css/createPP02.css">
+    <!-- link css EP01 -->
+    <link rel="stylesheet" href="../css/EP01.css">
+    @yield('linkCss')
 </head>
 
 <body class="">
@@ -38,10 +44,30 @@
     </nav>
 
     @yield('globalTitle')
-    
-    @yield('container')
-    
-    <script src="../js/app.js"> </script>
+
+
+    <section>
+        <div class="perant p-2 container">
+            <div class="titles mt-4 d-flex flex-column">
+                <span> Activation Pédagogiques</span>
+                <span> @yield('minTitle')</span>
+            </div>
+            <h4 class="ms-3 mt-4"> <i class="bi bi-arrow-90deg-right me-2"></i>@yield('supTitle')</h4>
+            <h5 class="mt-4"> <i class="bi bi-arrow-90deg-right me-2"></i> @yield('description') </h5>
+
+            <div id="pp"
+                class="global-input position-relative  row row-cols-2 justify-content-center align-items-center">
+
+                @yield('ContanierForm')
+
+                <div class="add bi bi-plus d-flex align-items-center justify-content-center col-1 "></div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="../js/app.js"></script>
+    @yield('linkJS')
 
 </body>
 

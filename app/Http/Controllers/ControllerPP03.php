@@ -25,31 +25,36 @@ class ControllerPP03 extends Controller
         $siteWeb      =  trim($explodeNote[1], ' ');
         $video        =  trim($explodeNote[2], ' ');
 
-        $countDiaporamas = count($request->DateDiffusion);
-        $countLien   = count($request->lien);
+        $countDiaporamas = (isset($request->DateDiffusion)) ? count($request->DateDiffusion) : 0 ;
+        $countLien   = ( isset($request->lien) ) ? count($request->lien) : 0;
         $total = ( $countDiaporamas*$Diaporamas) + ($countLien * $siteWeb);
-
-        foreach($request->DateDiffusion  as $key=>$index ){
-            $create = pp03::create(
-                [
-                    'dateDiffusion' => $request->DateDiffusion[$key],
-                    'NDiaporames'  => $countDiaporamas*$Diaporamas,
-                    'NTotal'  => $total,
-                    'idProuduction' => $id
-                 ]
-                );
+        if( isset($request->DateDiffusion) ){
+            foreach($request->DateDiffusion  as $key=>$index ){
+                $create = pp03::create(
+                    [
+                        'dateDiffusion' => $request->DateDiffusion[$key],
+                        'NDiaporames'  => $countDiaporamas*$Diaporamas,
+                        'NTotal'  => $total,
+                        'idProuduction' => $id
+                     ]
+                    );
+            }
         }
-        foreach($request->lien  as $key=>$index ){
-            $create = pp03::create(
-                [
-                    'lineSiteVideo' => $request->lien[$key],
-                    'NvideoSiteWeb' => $countLien * $siteWeb,
-                    'NTotal'  => $total,
-                    'idProuduction' => $id
-                 ]
-                );
+  
+        if( isset($request->lien) ){
+            foreach($request->lien  as $key=>$index ){
+                $create = pp03::create(
+                    [
+                        'lineSiteVideo' => $request->lien[$key],
+                        'NvideoSiteWeb' => $countLien * $siteWeb,
+                        'NTotal'  => $total,
+                        'idProuduction' => $id
+                     ]
+                    );
+            }
+    
         }
-
-        return redirect()->route('nextStep.index' , $id );
+     
+        return redirect()->route('nextStep.index' ,['id'=>$id , 'conection' =>'good'] );
     }
 }

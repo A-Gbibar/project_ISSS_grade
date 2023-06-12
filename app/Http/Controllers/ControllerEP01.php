@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\DB;
 
 class ControllerEP01 extends Controller
 {
+
+    static function existence($id){
+        $check = encadement_p::where('idP', $id)->first();
+        if (!isset($check)) {
+            $addEncadement_P = encadement_p::create(
+                [
+                    'idP' => $id
+                ]
+            );
+        }
+    }
     public function index($id)
     {
         if (isset($_GET['conection'])) {
@@ -26,14 +37,16 @@ class ControllerEP01 extends Controller
 
             $totalPP = $notePP01 + $notePP02 + $notePP03;
             $totalPP = $totalPP > 20 ? 20 : $totalPP;
-
             $singleUser = production_p::where('id_PP', $id)->first();
             if (!isset($singleUser)) {
                 return redirect()->route('wolcome.index');
             }
 
             $updateTotalePP = DB::table('production_ps')->where('id_PP', $id)->update(['TotalPP' => $totalPP]);
-            return view('/layout.NextStep', ['name' => 'PP', 'id' => $id]);
+            return view('/layout.NextStep', ['PP' => 'PP',
+              'id' => $id ,  
+              'go' => 'EP01.show',
+              'globalName' => 'Production Pédagogique']);
         }
         return back();
     }
@@ -49,25 +62,21 @@ class ControllerEP01 extends Controller
     }
     public function store($id, Request $request)
     {
-        $check = encadement_p::where('idP', $id)->first();
-        if (!isset($check)) {
-            $addEncadement_P = encadement_p::create(
-                [
-                    'idP' => $id
-                ]
-            );
-        }
+        $existence = new ControllerEP01();
+        $existence->existence($id);
 
         $files = $request->file('pageRaport');
         //check size in file
-        // dd($files[0]->getSize());
-        foreach ($files as $key => $index) {
-            if ($files[$key]->getSize() > 1000000) {
-                return back()->withErrors([
-                    'EroorSize'  =>  "Taille d'erreur veuillez vérifier la taille max 1 Mo",
-                ])->onlyInput();
+        if(isset($files)){
+            foreach ($files as $key => $index) {
+                if ($files[$key]->getSize() > 1000000) {
+                    return back()->withErrors([
+                        'EroorSize'  =>  "Taille d'erreur veuillez vérifier la taille max 1 Mo",
+                    ])->onlyInput();
+                }
             }
         }
+ 
         $getEP01 = DB::table('config_notes')->select('NEP01', 'NEP01_Max')->get();
         $explodeNote = explode(',', $getEP01[0]->NEP01);
         $lincence   =  trim($explodeNote[0], ' ');
@@ -75,28 +84,31 @@ class ControllerEP01 extends Controller
 
         $countLincence = 0;
         $countMastere  = 0;
-        $countNumberEncadrantsLincence = 0;
-        $countNumberEncadrantsMastere = 0;
+        $countNumberEncadrantsLincence = 1;
+        $countNumberEncadrantsMastere = 1;
         foreach ($request->NomberEncadrants as $key => $index) {
-            $fileName = time() . '' . $files[$key]->getClientOriginalName();
-            $filePath = $files[$key]->storeAs('pageRaport', $fileName, 'public');
+            //check isset in file key
+            $fileName = (isset($files[$key])) ? time() . '' . $files[$key]->getClientOriginalName() : '';
+            $filePath = (isset($files[$key])) ? $files[$key]->storeAs('pageRaport', $fileName, 'public') : null;
+
             $countMastere                  += ($request->type[$key] === "Master") ? 1 : 0;
             $countNumberEncadrantsMastere  += ($request->type[$key] === "Master") ? $request->NomberEncadrants[$key] : 0;
-            $countLincence += ($request->type[$key] === "Licence") ? 1 : 0;
-            $countNumberEncadrantsLincence  += ($request->type[$key] === "Licence") ? $request->NomberEncadrants[$key] : 0;
+            $countLincence                 += ($request->type[$key] === "Licence") ? 1 : 0;
+            $countNumberEncadrantsLincence += ($request->type[$key] === "Licence") ? $request->NomberEncadrants[$key] : 0;
 
             $create = ep01::create(
                 [
                     'type' => $request->type[$key],
                     'NomberEncadrants' => $request->NomberEncadrants[$key],
                     'DateRealisation' => $request->DateDiffusion[$key],
-                    'pageRapport' => $filePath,
-                    'NoteLicenceB' => $lincence,
-                    'NoteMaster' => $Master,
+                    'pageRapport' =>   $filePath,
+                    'NoteLicenceB' => ($request->type[$key] === "Licence") ?  $lincence : 0,
+                    'NoteMaster' => ($request->type[$key] === "Master") ? $Master : 0 ,
                     'idP' => $id,
                 ]
             );
         }
+      
         $countLincence = ($lincence * $countLincence) / $countNumberEncadrantsLincence;
         $countMastere = ($Master * $countMastere) / $countNumberEncadrantsMastere;
         $totalep01 =  $countLincence + $countMastere;
@@ -107,7 +119,8 @@ class ControllerEP01 extends Controller
                 'TotalEP01' => $totalep01
             ]);
         }
+        return redirect()->route('EP02.show' , ['id' => $id , 'conection' =>'good' ] );
+        
    
-        dd($countLincence, $countMastere, $countNumberEncadrantsMastere, $countNumberEncadrantsLincence);
     }
 }

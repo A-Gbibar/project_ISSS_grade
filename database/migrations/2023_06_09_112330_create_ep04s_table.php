@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateEp04sTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('ep04s', function (Blueprint $table) {
+            $table->id();
+            $table->integer('NomberFormation')->default(0);
+            $table->unsignedBigInteger('idP');
+            $table->double('TotalEP04')->default(0);
+            $table->foreign('idP')->references('idP')->on('encadement_ps');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('ep04s');
+    }
+}

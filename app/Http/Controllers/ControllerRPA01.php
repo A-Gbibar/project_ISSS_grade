@@ -104,6 +104,11 @@ class ControllerRPA01 extends Controller
             }
 
             $totalRP01 += $NChef + $NCoordonnateur + $NDirecteur;
+            
+            $NoteLast = rpa01::where('idP' , $id)->latest()->first();
+            $NoteLast = ($NoteLast !== null)? $NoteLast->TotalRPA01 : 0;
+            $totalRP01 += $NoteLast;    
+
             $resoult = ($totalRP01 > 4 )?4: $totalRP01;
             $create = rpa01::create(
                 [
@@ -119,8 +124,7 @@ class ControllerRPA01 extends Controller
                 );
             
         }
-        dd( $create);
-                
+        return redirect()->route('RPA02.show' , ['id' => $id ,'conection' =>'good'] );                
        }
     }
 }

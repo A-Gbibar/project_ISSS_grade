@@ -26,7 +26,11 @@
                         @if(isset($EP))  <i class="bi bi-check-circle-fill ms-2"></i></span> 
                         @else               <i class="bi bi-x-circle-fill ms-2"></i>
                         @endif
-                    <li><span>Responsabilité pédagpgique et Administrative <i
+                    <li><span>Responsabilité pédagpgique et Administrative 
+                        @if(isset($RPA))  <i class="bi bi-check-circle-fill ms-2"></i></span> 
+                        @else               <i class="bi bi-x-circle-fill ms-2"></i>
+                        @endif
+                        <i
                                 class="bi bi-x-circle-fill ms-2"></i></span></li>
                     <li><span>Production Sécientifique<i class="bi bi-x-circle-fill ms-2"></i></span></li>
                     <li><span>Encadrement Scientifique<i class="bi bi-x-circle-fill ms-2"></i></span></li>

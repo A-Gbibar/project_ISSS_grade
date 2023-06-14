@@ -47,10 +47,27 @@ Route::post('EP04_EP05/{id}' , 'ControllerEP04_EP05@store')->name('EP04_EP05.sto
 Route::get('EP06/{id}' , 'ControllerEP06@show')->name('EP06.show');
 Route::post('EP06/{id}' , 'ControllerEP06@store')->name('EP06.store');
 
-//===========RP============
+//===========RPA01============
 Route::get('/nextStepRPA/{id}' , 'ControllerRPA01@index')->name('nextStepRPA.index');
 Route::get('/RPA01/{id}' , 'ControllerRPA01@show')->name('RPA01.show');
 Route::post('/RPA01/{id}' , 'ControllerRPA01@store')->name('RPA01.store');
 
+//========RP0A2===============
+Route::get('/RPA02/{id}' , 'ControllerRPA02@show')->name('RPA02.show');
+Route::post('/RPA02/{id}' , 'ControllerRPA02@store')->name('RPA02.store');
+
+//========RPA03===============
+Route::get('/RPA03/{id}' , 'ControllerRPA03@show')->name('RPA03.show');
+Route::post('/RPA03/{id}' , 'ControllerRPA03@store')->name('RPA03.store');
+//========RPA04=RPA05=RPA06===============
+Route::get('/RPA04-05-06-07/{id}' , 'ControllerRPA04@show')->name('RPA04-05-06-07.show');
+Route::post('/RPA04-05-06-07/{id}' , 'ControllerRPA04@store')->name('RPA04-05-06-07.store');
+
+//========RPA08===============
+Route::get('/RPA08/{id}' , 'ControllerRPA08@show')->name('RPA08.show');
+Route::post('/RPA08/{id}' , 'ControllerRPA08@store')->name('RPA08.store');
+
+//===========PS01============
+Route::get('/nextStepPS/{id}' , 'ControllerPS@index')->name('nextStepPS.index');
 
 // Route::get('/home', 'HomeController@index')->name('home');

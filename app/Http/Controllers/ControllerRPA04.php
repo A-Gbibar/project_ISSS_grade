@@ -12,6 +12,13 @@ class ControllerRPA04 extends Controller
 {
     public function show($id){
         if (isset($_GET['conection'])) {
+            $rpa04 = rpa04::where('idP' , $id)->latest()->first();
+            $rpa05 = rpa05::where('idP' , $id)->latest()->first();
+            $rpa06 = rpa06::where('idP' , $id)->latest()->first();
+            $rpa07 = rpa07::where('idP' , $id)->latest()->first();
+            if( isset($rpa04) && isset($rpa05) &&isset($rpa06) && isset($rpa07)  ){
+                return redirect()->route("RPA08.show" , ['id' => $id ,'conection' =>'good']);
+            }
             return view( 'layout.RPA01.productionRPA04_RPA05_RPA06_RPA07' , ['id' => $id]);
         }
         return back();

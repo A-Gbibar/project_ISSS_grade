@@ -68,6 +68,6 @@ Route::get('/RPA08/{id}' , 'ControllerRPA08@show')->name('RPA08.show');
 Route::post('/RPA08/{id}' , 'ControllerRPA08@store')->name('RPA08.store');
 
 //===========PS01============
-Route::get('/nextStepPS/{id}' , 'ControllerPS@index')->name('nextStepPS.index');
+Route::get('/nextStepPS01/{id}' , 'ControllerPS01@index')->name('nextStepPS01.index');
 
 // Route::get('/home', 'HomeController@index')->name('home');

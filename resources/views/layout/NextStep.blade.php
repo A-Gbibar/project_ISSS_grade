@@ -18,23 +18,22 @@
             <div class="traver d-flex flex-column ps-3">
                 <ol>
                     <li><span>Production Pédagogique 
-                        @if(isset($PP))  <i class="bi bi-check-circle-fill ms-2"></i></span> 
-                        @else               <i class="bi bi-x-circle-fill ms-2"></i>
+                        @if(isset($PP))  <i class="bi bi-check2-square ms-2"></i></span> 
+                        @else               <i class="bi bi-x-squar ms-2"></i>
                         @endif
                     </li>
                     <li><span>Encadrement pédagpgique 
-                        @if(isset($EP))  <i class="bi bi-check-circle-fill ms-2"></i></span> 
-                        @else               <i class="bi bi-x-circle-fill ms-2"></i>
+                        @if(isset($EP))  <i class="bi bi-check2-square ms-2"></i></span> 
+                        @else               <i class="bi bi-x-squar ms-2"></i>
                         @endif
                     <li><span>Responsabilité pédagpgique et Administrative 
-                        @if(isset($RPA))  <i class="bi bi-check-circle-fill ms-2"></i></span> 
-                        @else               <i class="bi bi-x-circle-fill ms-2"></i>
+                        @if(isset($RPA))  <i class="bi bi-check2-square ms-2"></i></span> 
+                        @else               <i class="bi bi-x-square ms-2"></i>
                         @endif
-                        <i
-                                class="bi bi-x-circle-fill ms-2"></i></span></li>
-                    <li><span>Production Sécientifique<i class="bi bi-x-circle-fill ms-2"></i></span></li>
-                    <li><span>Encadrement Scientifique<i class="bi bi-x-circle-fill ms-2"></i></span></li>
-                    <li><span>Responsabilité Scientifique<i class="bi bi-x-circle-fill ms-2"></i></span></li>
+                 
+                    <li><span>Production Sécientifique<i class="bi bi-x-square ms-2"></i></span></li>
+                    <li><span>Encadrement Scientifique<i class="bi bi-x-square ms-2"></i></span></li>
+                    <li><span>Responsabilité Scientifique<i class="bi bi-x-square ms-2"></i></span></li>
                 </ol>
             </div>
             <div class=" buttoms mt-4 w-100 text-center" >

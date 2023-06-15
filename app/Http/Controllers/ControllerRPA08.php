@@ -8,6 +8,12 @@ class ControllerRPA08 extends Controller
 {
     public function show($id){
         if (isset($_GET['conection'])) {
+
+            $rpa08 = rpa08::where('idP' , $id)->latest()->first();
+            if( isset($rpa08) ){
+                return redirect()->route("nextStepPS01.index" , ['id' => $id ,'conection' =>'good']);
+            }
+
             return view( 'layout.RPA01.productionRPA08' , ['id' => $id]);
         }
         return back();
@@ -43,7 +49,8 @@ class ControllerRPA08 extends Controller
                 rpa08::create( $data );
             }
         }
-        dd($request);
+        return redirect()->route('nextStepPS01.index' , ['id' => $id ,'conection' =>'good' ] );
 
     }
 }
+ 

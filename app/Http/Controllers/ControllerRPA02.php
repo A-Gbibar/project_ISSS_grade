@@ -9,6 +9,11 @@ class ControllerRPA02 extends Controller
 {
     public function show($id){
         if (isset($_GET['conection'])) {
+            $rpa02 = rpa02::where('idP' , $id)->latest()->first();
+            if( isset($rpa02) ){
+                return redirect()->route("RPA03.show" , ['id' => $id ,'conection' =>'good']);
+            }
+
             return view( 'layout.RPA01.productionRPA02' , ['id' => $id]);
         }
         return back();

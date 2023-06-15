@@ -21,6 +21,13 @@ class ControllerRPA01 extends Controller
     public function index($id)
     {
         if (isset($_GET['conection'])) {
+
+            
+            $responsabilite_pa = responsabilite_pa::where('idP' , $id)->latest()->first();
+            if( isset($responsabilite_pa) ){
+                return redirect()->route("RPA01.show" , ['id' => $id ,'conection' =>'good']);
+            }
+
             $noteEP01 = ep01::where('idP',  $id)->latest()->first();
             $noteEP01 = isset($noteEP01) ? $noteEP01->TotalEP01 : 0;
             $noteEP02 = ep02::where('idP',  $id)->latest()->first();
@@ -56,7 +63,10 @@ class ControllerRPA01 extends Controller
     public function show($id)
     {
         if (isset($_GET['conection'])) {
-
+            $rpa01 = rpa01::where('idP' , $id)->latest()->first();
+            if( isset($rpa01) ){
+                return redirect()->route("RPA02.show" , ['id' => $id ,'conection' =>'good']);
+            }
             return view('layout.RPA01.productionRPA01', ['id' => $id]);
         }
         return back();
@@ -74,6 +84,9 @@ class ControllerRPA01 extends Controller
     }
     public function store($id , Request $request){
        if( isset($request) ){
+
+  
+
 
         $ControllerRPA01 = new ControllerRPA01;
         $ControllerRPA01->existence($id);

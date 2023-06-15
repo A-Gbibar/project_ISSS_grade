@@ -11,6 +11,11 @@ class ControllerEP02 extends Controller
     public function show($id){
         if( isset($_GET['conection']) ){
 
+            $ep02 = ep02::where('idP' , $id)->latest()->first();
+            if( isset($ep02) ){
+                return redirect()->route('EP03.show' , ['id' => $id ,'conection' =>'good']);
+            }
+
             return view('layout.productionEP02' , ['id' => $id]);
         }
         return back();

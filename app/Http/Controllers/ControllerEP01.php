@@ -28,6 +28,12 @@ class ControllerEP01 extends Controller
     public function index($id)
     {
         if (isset($_GET['conection'])) {
+
+            $encadement_p = encadement_p::where('idP' , $id)->latest()->first();
+            if( isset($encadement_p) ){
+                return redirect()->route("EP01.show" , ['id' => $id ,'conection' =>'good']);
+            }
+
             $notePP01 = pp01::where('idProuduction',  $id)->first();
             $notePP01 = isset($notePP01) ? $notePP01->note : 0;
             $notePP02 = pp02::where('idProuduction',  $id)->first();
@@ -56,6 +62,12 @@ class ControllerEP01 extends Controller
     public function show($id)
     {
         if (isset($_GET['conection'])) {
+
+            $ep01 = ep01::where('idP' , $id)->latest()->first();
+            if( isset($ep01) ){
+                return redirect()->route('EP02.show' , ['id' => $id ,'conection' =>'good']);
+            }
+
             return view('layout.productionEP01', ['id' => $id]);
         }
         return back();
